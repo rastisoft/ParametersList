@@ -73,9 +73,9 @@ pl.loadFromFile("config02.plf");
 ```
 
 ## Examples:
-C++ : cpp/examples/simple.cpp
+C++: cpp/examples/simple.cpp
 
-Java : java/Simple.java
+Java: java/Simple.java
 
 ## Build C++ version:
 ### Requirements:
