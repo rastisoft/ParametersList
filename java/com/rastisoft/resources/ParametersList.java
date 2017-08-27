@@ -87,7 +87,7 @@ public class ParametersList {
 				if(character == '\n' || character == '\r' || character == '\t')
 					continue;
 
-				if(character == '/')
+				if(character == '/' )
 					commentCharacterFound = (lastCharacter == '/');
 				else if(isKeyValueSeparatorFound)
 				{

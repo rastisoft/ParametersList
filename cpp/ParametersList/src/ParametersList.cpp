@@ -54,7 +54,7 @@ namespace RS::Resources
     {
         std::fstream inStream(plfFile, std::fstream::in);
         if (!inStream.is_open())
-            THROW_PL_EXCEPTION("ParametersList loadFile : " + plfFile + " could not be opened.", PLError::FailToOpenFile);
+            THROW_PL_EXCEPTION("ParametersList loadFile : " + plfFile + " could not be opened. ", PLError::FailToOpenFile);
 
         std::string key;
         std::string value;    
