@@ -34,6 +34,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "ParametersListException.h"
 #include "CommonTypes.h"
 
+#include <iostream>
+
 namespace RS::Resources
 {
     typedef std::unordered_map<std::string, std::string> ListType;

@@ -32,7 +32,7 @@ Screen =
 Color = {red = 0.5; green = 1.0; blue = 0.0;}
 ```
 
-To make ParametersList files parsing easier and faster, some few rules should be followed.
+To make parsing of ParametersList file easier and faster, some few rules should be followed.
 
  * Parameter and its vale are separated by '=' .
  * Semicolon ';' should be used at the end of a statement.
@@ -43,7 +43,7 @@ To make ParametersList files parsing easier and faster, some few rules should be
 * Syntax checker is not completed yet so breaking of syntax rules may cause fatal error.
 
 ## **How to use**
-During the runtime, the ParametersList can be used to extract the parameters and their values:
+During the runtime, the ParametersList can be used to extract the parameters and their values from a plf file:
 
 ### C++:
 ```c++
@@ -71,8 +71,8 @@ You can also load another .plf file. In this case, value of the existing paramet
 ```C++
 pl.loadFromFile("config02.plf");
 ```
-## Examples:
 
+## Examples:
 C++ : cpp/examples/simple.cpp
 
 Java : java/Simple.java
