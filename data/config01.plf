@@ -1,0 +1,15 @@
+// This is a simple ParametersList file.
+
+title = simple app;
+Screen =
+{
+    Size = 
+    {
+        width = 1280;
+        height = 720;
+    }
+
+    isFullScreen = false;
+}
+
+Color = {red = 0.5; green = 1.0; blue = 0.0;}

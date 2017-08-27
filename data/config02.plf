@@ -1,0 +1,9 @@
+// This is a simple ParametersList file.
+
+title = another title;
+Screen =
+{
+    isFullScreen = true;
+}
+
+backgroundImage = anImage.png;
