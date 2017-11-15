@@ -55,7 +55,7 @@ namespace RS::Resources
             @param plfFile: plf file that the parameters should be extracted from.
             @return
         */
-                        ParametersList(const std::string& plfFile);
+                        ParametersList(const std::string_view& plfFile);
 
                         ~ParametersList(void);
         /**
@@ -63,7 +63,7 @@ namespace RS::Resources
             @param plfFile: PLF file that the parameters should be extracted from.
             @return: void.
         */
-        void            loadFromFile(const std::string& plfFile);                
+        void            loadFromFile(const std::string_view& plfFile);                
 
         /**
             @description: Adds new parameter/Updates existing ones with numerical value(int, float, double, long, unsiged int, unsiged long).

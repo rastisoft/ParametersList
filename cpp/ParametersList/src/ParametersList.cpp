@@ -41,7 +41,7 @@ namespace RS::Resources
     {
     }
 
-    ParametersList::ParametersList(const std::string& plfFile)
+    ParametersList::ParametersList(const std::string_view& plfFile)
     {
         loadFromFile(plfFile);
     }
@@ -50,11 +50,11 @@ namespace RS::Resources
     {        
     }
 
-    void ParametersList::loadFromFile(const std::string& plfFile)
+    void ParametersList::loadFromFile(const std::string_view& plfFile)
     {
-        std::fstream inStream(plfFile, std::fstream::in);
+        std::fstream inStream(&plfFile[0], std::fstream::in);
         if (!inStream.is_open())
-            THROW_PL_EXCEPTION("ParametersList loadFile : " + plfFile + " could not be opened. ", PLError::FailToOpenFile);
+            THROW_PL_EXCEPTION("ParametersList loadFile : " + std::string(plfFile) + " could not be opened. ", PLError::FailToOpenFile);
 
         std::string key;
         std::string value;    
@@ -62,7 +62,7 @@ namespace RS::Resources
         bool commentCharacterFound = false;
         std::vector<std::string> keysList;    
         char character;
-        char lastCharacter = 0;
+        char lastCharacter{0};
 
         while (inStream >> std::noskipws >> character)
         {    
