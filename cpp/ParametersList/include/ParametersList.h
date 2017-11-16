@@ -85,7 +85,7 @@ namespace RS::Resources
         };        
 
         /**
-            @description: Adds new parameter/Updates existing ones with string type value.
+            @description: Adds new parameter/Updates existing ones with string type value. 
             @param parameter: the parameter name.
             @param value: value of the parameter.
             @return: void.
