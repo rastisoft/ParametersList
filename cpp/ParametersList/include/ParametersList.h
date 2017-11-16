@@ -49,7 +49,7 @@ namespace RS::Resources
             @description: ParametersList class default constructor.
             @return
         */
-                        ParametersList(void);
+                        ParametersList(void) = default;
         /**
             @description: ParametersList class constructor.
             @param plfFile: plf file that the parameters should be extracted from.

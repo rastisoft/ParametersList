@@ -36,11 +36,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace RS::Resources
 {
     using namespace RS::Utility;
-    
-    ParametersList::ParametersList(void)
-    {
-    }
-
+   
     ParametersList::ParametersList(const std::string_view& plfFile)
     {
         loadFromFile(plfFile);
@@ -58,8 +54,8 @@ namespace RS::Resources
 
         std::string key;
         std::string value;    
-        bool isKeyValueSeparatorFound = false;
-        bool commentCharacterFound = false;
+        bool isKeyValueSeparatorFound{false};
+        bool commentCharacterFound{false};
         std::vector<std::string> keysList;    
         char character;
         char lastCharacter{0};
