@@ -30,8 +30,8 @@ namespace RS::Data::Exception
 {
     enum class RSErrorCode
     {
-        FailToOpenFile = 100,
-        InvalidValue,
-        FailedToSet
+        PL_FailToOpenFile = 100,
+        PL_InvalidValue,
+        PL_FailedToSet
     };
 }

@@ -51,7 +51,7 @@ namespace RS::Data
     {
         std::fstream inStream(&plfFile[0], std::fstream::in);
         if (!inStream.is_open())
-            THROW_PL_EXCEPTION("ParametersList loadFile : " + std::string(plfFile) + " could not be opened. ", Exception::RSErrorCode::FailToOpenFile);
+            THROW_PL_EXCEPTION("ParametersList loadFile : " + std::string(plfFile) + " could not be opened. ", Exception::RSErrorCode::PL_FailToOpenFile);
 
         std::string key;
         std::string value;    
@@ -140,7 +140,7 @@ namespace RS::Data
         if(mParametersList[parameter] == "true" || mParametersList[parameter] == "false")
             return (mParametersList[parameter] == "true");
         else
-            THROW_PL_EXCEPTION("ParametersList get() : invalid boolean value for parameter (" + parameter + ").", Exception::RSErrorCode::InvalidValue);
+            THROW_PL_EXCEPTION("ParametersList get() : invalid boolean value for parameter (" + parameter + ").", Exception::RSErrorCode::PL_InvalidValue);
     }
 
     template <>
