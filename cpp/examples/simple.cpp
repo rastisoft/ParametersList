@@ -32,11 +32,10 @@ parameters value.
 */
 
 #include <iostream>
-#include "../ParametersList/include/ParametersList.h"
-#include "../ParametersList/include/Utility.h"
+#include <RS/Data/ParametersList/ParametersList.h>
 
 using namespace RS;
-using namespace RS::Resources;
+using namespace RS::Data;
 
 int main(int argc, char* argv[])
 {
@@ -81,7 +80,7 @@ int main(int argc, char* argv[])
         std::cout << "background image : " << pl.get<std::string>("backgroundImage") << '\n';
 
     }
-    catch(const ParametersListException& exception)
+    catch(const Exception::RSException& exception)
     {
         std::cout << exception.what() << '\n';
     }

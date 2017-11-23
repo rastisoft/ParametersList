@@ -26,42 +26,36 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "../include/ParametersListException.h"
+#pragma once
 
-namespace RS::Resources
+#include "RS/Common/CommonTypes.h"
+#include <string>
+#include <exception>
+#include "RSErrorCode.h"
+
+namespace RS::Data::Exception
 {
-    ParametersListException::ParametersListException(const std::string& message, PLError errorCode, const std::string& file, i32 line) 
-        : mMessage(message), mErrorCode(errorCode), mLine(line), mFile(file)
+    class RSException : public std::exception
     {
-        mFullMessage = "Error in file '" + mFile + "' in line " + std::to_string(mLine) + " : " + mMessage;
-    }
+    protected:
+        std::string                 mMessage;
+        ulong                       mLine;
+        std::string                 mFile;
+        std::string                 mModule;
+        std::string                 mFullMessage;
+        RSErrorCode                 mErrorCode;
+    public:
+                                    RSException(const std::string& message, RSErrorCode errorCode, const std::string& file, i32 line);                         
+        virtual                     ~RSException(void) throw();
 
-    ParametersListException::~ParametersListException() throw()
-    {
-    }
+        virtual const std::string&  getFile();
+        virtual ulong               getLine();
+        virtual RSErrorCode         getErrorCode();
+        virtual const std::string&  getMessage();         
+        
+        const char*                 what() const throw();
+    };
 
-    const std::string& ParametersListException::getFile()
-    {
-        return mFile;
-    }
-
-    ulong ParametersListException::getLine()
-    {
-        return mLine;
-    }
-
-    PLError ParametersListException::getErrorCode()
-    {
-        return mErrorCode;
-    }
-
-    const std::string& ParametersListException::getMessage()
-    {
-        return mMessage;
-    }
-
-    const char* ParametersListException::what() const throw()
-    {        
-        return mFullMessage.c_str();
-    }
+    //TODO: try inline function instead of macro.
+    #define THROW_PL_EXCEPTION(message, errorCode) throw RS::Data::Exception::RSException(message, errorCode, __FILE__, __LINE__)    
 }

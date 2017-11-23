@@ -28,40 +28,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #pragma once
 
-#include "CommonTypes.h"
-#include <string>
-#include <exception>
+#include <cstdint>
 
-namespace RS::Resources
+namespace RS
 {
-    enum class PLError
-    {
-        FailToOpenFile = 1,
-        InvalidValue,
-        FailedToSet
-    };
+    typedef std::int8_t         i8;
+    typedef std::uint8_t        ui8;
+    typedef std::int16_t        i16;
+    typedef std::uint16_t       ui16;
+    typedef std::int32_t        i32;
+    typedef std::uint32_t       ui32;
+    typedef unsigned long		ulong;
+    typedef std::int64_t		i64;
+    typedef std::uint64_t    	ui64;
+    typedef float				f32;
 
-    class ParametersListException : public std::exception
-    {
-    protected:
-        std::string                 mMessage;
-        ulong                       mLine;
-        std::string                 mFile;
-        std::string                 mModule;
-        std::string                 mFullMessage;
-        PLError                     mErrorCode;
-    public:
-                                    ParametersListException(const std::string& message, PLError errorCode, const std::string& file, i32 line);                         
-        virtual                     ~ParametersListException(void) throw();
-
-        virtual const std::string&  getFile();
-        virtual ulong               getLine();
-        virtual PLError             getErrorCode();
-        virtual const std::string&  getMessage();         
-        
-        const char*                 what() const throw();
-    };
-
-    //TODO: try inline function instead of macro.
-    #define THROW_PL_EXCEPTION(message, errorCode) throw RS::Resources::ParametersListException(message, errorCode, __FILE__, __LINE__)    
+    //TODO: consider other compiler as well.(clang, MSVC)
+    #define RS_INLINE           inline __attribute__((always_inline))
 }

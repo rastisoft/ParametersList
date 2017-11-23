@@ -26,22 +26,42 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#pragma once
+#include "RS/Exception/RSException.h"
 
-#include <cstdint>
-
-namespace RS
+namespace RS::Data::Exception
 {
-    typedef std::int8_t			i8;
-    typedef std::uint8_t 		ui8;
-    typedef std::int16_t		i16;
-    typedef std::uint16_t 		ui16;
-    typedef std::int32_t		i32;
-    typedef std::uint32_t		ui32;
-    typedef unsigned long		ulong;
-    typedef std::int64_t		i64;
-    typedef std::uint64_t    	ui64;
-    typedef float				f32;
+    RSException::RSException(const std::string& message, RSErrorCode errorCode, const std::string& file, i32 line) 
+        : mMessage(message), mErrorCode(errorCode), mLine(line), mFile(file)
+    {
+        mFullMessage = "Error in file '" + mFile + "' in line " + std::to_string(mLine) + " : " + mMessage;
+    }
 
-    #define RS_INLINE           inline
+    RSException::~RSException() throw()
+    {
+    }
+
+    const std::string& RSException::getFile()
+    {
+        return mFile;
+    }
+
+    ulong RSException::getLine()
+    {
+        return mLine;
+    }
+
+    RSErrorCode RSException::getErrorCode()
+    {
+        return mErrorCode;
+    }
+
+    const std::string& RSException::getMessage()
+    {
+        return mMessage;
+    }
+
+    const char* RSException::what() const throw()
+    {        
+        return mFullMessage.c_str();
+    }
 }

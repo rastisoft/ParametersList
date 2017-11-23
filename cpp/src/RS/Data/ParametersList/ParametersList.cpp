@@ -26,14 +26,15 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "../include/ParametersList.h"
-#include "../include/Utility.h"
+#include "RS/Data/ParametersList/ParametersList.h"
+#include "RS/Utility/String.h"
+
 #include <fstream>
 #include <iostream>
 #include <vector>
 #include <utility>
 
-namespace RS::Resources
+namespace RS::Data
 {
     using namespace RS::Utility;
    
@@ -50,7 +51,7 @@ namespace RS::Resources
     {
         std::fstream inStream(&plfFile[0], std::fstream::in);
         if (!inStream.is_open())
-            THROW_PL_EXCEPTION("ParametersList loadFile : " + std::string(plfFile) + " could not be opened. ", PLError::FailToOpenFile);
+            THROW_PL_EXCEPTION("ParametersList loadFile : " + std::string(plfFile) + " could not be opened. ", Exception::RSErrorCode::FailToOpenFile);
 
         std::string key;
         std::string value;    
@@ -139,7 +140,7 @@ namespace RS::Resources
         if(mParametersList[parameter] == "true" || mParametersList[parameter] == "false")
             return (mParametersList[parameter] == "true");
         else
-            THROW_PL_EXCEPTION("ParametersList get() : invalid boolean value for parameter (" + parameter + ").", PLError::InvalidValue);
+            THROW_PL_EXCEPTION("ParametersList get() : invalid boolean value for parameter (" + parameter + ").", Exception::RSErrorCode::InvalidValue);
     }
 
     template <>

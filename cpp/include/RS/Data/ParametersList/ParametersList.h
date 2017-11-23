@@ -31,12 +31,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string>
 #include <unordered_map>
 #include <sstream>
-#include "ParametersListException.h"
-#include "CommonTypes.h"
+#include "RS/Exception/RSException.h"
+#include "RS/Common/CommonTypes.h"
 
 #include <iostream>
 
-namespace RS::Resources
+namespace RS::Data
 {
     typedef std::unordered_map<std::string, std::string> ListType;
     class ParametersList
@@ -80,7 +80,7 @@ namespace RS::Resources
             }
             catch(std::bad_alloc)
             {
-                THROW_PL_EXCEPTION("ParameterList set() : Failed to set parameter '" + parameter + "'", PLError::FailedToSet);
+                THROW_PL_EXCEPTION("ParameterList set() : Failed to set parameter '" + parameter + "'", Exception::RSErrorCode::FailedToSet);
             }
         };        
 
@@ -131,7 +131,7 @@ namespace RS::Resources
             if (T value; std::istringstream(mParametersList[parameter]) >> value)
                 return value;
             else
-                THROW_PL_EXCEPTION("ParameterList get() : invalid value. parameter (" + parameter + ").", PLError::InvalidValue);
+                THROW_PL_EXCEPTION("ParameterList get() : invalid value. parameter (" + parameter + ").", Exception::RSErrorCode::InvalidValue);
         };
     };
 
