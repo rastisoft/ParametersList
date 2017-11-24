@@ -28,7 +28,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "RS/Exception/RSException.h"
 
-namespace RS::Data::Exception
+namespace RS::Exception
 {
     RSException::RSException(const std::string& message, RSErrorCode errorCode, const std::string& file, i32 line) 
         : mMessage(message), mErrorCode(errorCode), mLine(line), mFile(file)

@@ -36,6 +36,7 @@ parameters value.
 
 using namespace RS;
 using namespace RS::Data;
+using namespace RS::Exception;
 
 int main(int argc, char* argv[])
 {

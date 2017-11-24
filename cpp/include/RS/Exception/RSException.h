@@ -33,7 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <exception>
 #include "RSErrorCode.h"
 
-namespace RS::Data::Exception
+namespace RS::Exception
 {
     class RSException : public std::exception
     {
@@ -43,7 +43,7 @@ namespace RS::Data::Exception
         std::string                 mFile;
         std::string                 mModule;
         std::string                 mFullMessage;
-        RSErrorCode                 mErrorCode;
+        Exception::RSErrorCode      mErrorCode;
     public:
                                     RSException(const std::string& message, RSErrorCode errorCode, const std::string& file, i32 line);                         
         virtual                     ~RSException(void) throw();
@@ -57,5 +57,5 @@ namespace RS::Data::Exception
     };
 
     //TODO: try inline function instead of macro.
-    #define THROW_PL_EXCEPTION(message, errorCode) throw RS::Data::Exception::RSException(message, errorCode, __FILE__, __LINE__)    
+    #define THROW_RS_EXCEPTION(message, errorCode) throw RS::Exception::RSException(message, errorCode, __FILE__, __LINE__)    
 }

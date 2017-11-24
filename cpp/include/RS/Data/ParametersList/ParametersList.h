@@ -80,7 +80,7 @@ namespace RS::Data
             }
             catch(std::bad_alloc)
             {
-                THROW_PL_EXCEPTION("ParameterList set() : Failed to set parameter '" + parameter + "'", Exception::RSErrorCode::PL_FailedToSet);
+                THROW_RS_EXCEPTION("ParameterList set() : Failed to set parameter '" + parameter + "'", Exception::RSErrorCode::PL_FailedToSet);
             }
         };        
 
@@ -131,7 +131,7 @@ namespace RS::Data
             if (T value; std::istringstream(mParametersList[parameter]) >> value)
                 return value;
             else
-                THROW_PL_EXCEPTION("ParameterList get() : invalid value. parameter (" + parameter + ").", Exception::RSErrorCode::PL_InvalidValue);
+                THROW_RS_EXCEPTION("ParameterList get() : invalid value. parameter (" + parameter + ").", Exception::RSErrorCode::PL_InvalidValue);
         };
     };
 
