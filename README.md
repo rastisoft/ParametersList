@@ -7,9 +7,9 @@
 |**Status:**   | under development |
 
 ## **What is ParametersList?**
-Sometimes for our personal software projects, we prefer to keep the parameters and their value that are needed to configure an application,  in a text file. It allows us, without recompiling the source code, control behavior of the application by changing these parameters. Previously, we used XML and json to stores and deal with these parameters. Later, we decided to create our own simpler tool, named ParametersList, which provides us minimum functionalities that we need. 
+Sometimes for our personal software projects, we prefer to keep the parameters and their value that are needed to configure an application,  in a text file. It allows us, without recompiling the source code, control behavior of the application by changing these parameters. Previously, we used XML and json to store and deal with these parameters. Later, we decided to create our own simpler tool, named ParametersList, which provides us minimum functionalities that we need. 
 
-At the moment, the ParametersList is in its earlier stage and evolving gradually so its not completely error free. So far we have implemented the first version in C++17 and Java. The C# version will be added later.
+Currently, the ParametersList is in its earlier stage and evolving gradually so its not completely error free. So far we have implemented the first version in C++17 and Java. The C# version will be added later.
 
 ## **Rules**
 The parameters and their values are stored in a C like syntax into a file with extension .plf like:

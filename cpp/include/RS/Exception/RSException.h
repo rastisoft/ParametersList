@@ -31,7 +31,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "RS/Common/CommonTypes.h"
 #include <string>
 #include <exception>
-#include "RSErrorCode.h"
+#include "RS/Common/RSErrorCode.h"
 
 namespace RS::Exception
 {
@@ -43,7 +43,7 @@ namespace RS::Exception
         std::string                 mFile;
         std::string                 mModule;
         std::string                 mFullMessage;
-        Exception::RSErrorCode      mErrorCode;
+        RSErrorCode                 mErrorCode;
     public:
                                     RSException(const std::string& message, RSErrorCode errorCode, const std::string& file, i32 line);                         
         virtual                     ~RSException(void) throw();
@@ -54,8 +54,8 @@ namespace RS::Exception
         virtual const std::string&  getMessage();         
         
         const char*                 what() const throw();
-    };
-
-    //TODO: try inline function instead of macro.
-    #define THROW_RS_EXCEPTION(message, errorCode) throw RS::Exception::RSException(message, errorCode, __FILE__, __LINE__)    
+    };    
 }
+
+//TODO: try inline function instead of macro.
+#define THROW_RS_EXCEPTION(message, errorCode) throw RS::Exception::RSException(message, errorCode, __FILE__, __LINE__)

@@ -26,12 +26,26 @@ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-namespace RS::Exception
+namespace RS
 {
     enum class RSErrorCode
     {
-        PL_FailToOpenFile = 100,
-        PL_InvalidValue,
-        PL_FailedToSet
+        Undefined = -1,
+        Done = 0,
+        FailToOpenFile = 10,
+        
+        PL_InvalidValue = 100,
+        PL_FailedToSet,
+
+        BGL_GLFWInitFailed = 150,
+        BGL_GLFWCreateWindowFailed,
+        BGL_GLEWInitFailed,
+        BGL_GeneratingTextureFailed,
+        BGL_ImageDataHasNotBeenLoaded,
+        BGL_ShaderFileLoadingFailed,
+        BGL_ShaderLinkFailed,
+        BGL_CreatingShaderProgramFailed,
+        BGL_CreatingShaderFailed,
+        BGL_CompilingShaderFailed,
     };
 }
